@@ -1,7 +1,6 @@
 import tkinter as tk
 from tkinter import ttk
 import string
-import random
 import secrets
 import pyperclip  # `pip install pyperclip`
 
@@ -33,7 +32,7 @@ def generate_password():
     password = ''.join(secrets.choice(chars) for _ in range(actual_length))
     if trailing_symbol_var.get():
         trailing_symbols = ['!', '$', '@', '#', '%', '^', '&', '*']
-        password += random.choice(trailing_symbols)
+        password +=secrets.choice(trailing_symbols)
     password_var.set(password)
 
 def copy_password():
@@ -73,3 +72,4 @@ tk.Entry(root, textvariable=password_var, width=30).grid(row=8, column=0, column
 tk.Button(root, text="Copy", command=copy_password).grid(row=8, column=2)
 
 root.mainloop()
+
